@@ -27,3 +27,18 @@
 .sSlider .arrow-next {
     right: -30px;
 }
+.sSlider .circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 7px;
+    background: #ccc;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.sSlider .circle.active,
+.sSlider .circle:hover {
+    background: #89d86d;
+}
