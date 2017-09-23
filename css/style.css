@@ -6,11 +6,28 @@
 .sSlider {
     position: relative;
     text-align: center;
+    width: 800px;
+    overflow: hidden;
 }
+#sSlider-wr {
+    width: 9999px;
+    height: 300px;
+    position: relative;
+    transition: transform 400ms ease;
+}
+.sSlide {
+    float: left;
+    width: 800px;
+    overflow: hidden;
+    position: relative;
+}
+
+
 .sSlider .arrow {
     position: absolute;
-    top: 50%;
     display: block;
+    top: 50%;
+    margin-top: -10px;
     width: 20px;
     height: 20px;
     -webkit-border-radius: 50%;
@@ -22,10 +39,10 @@
     font-family: Tahoma;
 }
 .sSlider .arrow-prev {
-    left: -30px;
+    left: 5px;
 }
 .sSlider .arrow-next {
-    right: -30px;
+    right: 5px;
 }
 .sSlider .circle {
     display: inline-block;
