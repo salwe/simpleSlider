@@ -1,3 +1,8 @@
+$.fn.sSlide = function(root) {
+    var slider = new Slider(this);
+    return this;
+};
+
 class Slider {
     constructor(root) {
         this.root = root[0];
@@ -18,16 +23,16 @@ class Slider {
     addNavigation() {
         this.root.innerHTML = `<div id='sSlider-wr'>${this.root.innerHTML}</div>`;
 
-        var nav = this.addElement('navigation', '');
-        var paging = this.addElement('paging', '');
-        this.addElement('arrow arrow-next', '>', nav, () => {
+        var nav = this.addDOMElement('navigation', '');
+        var paging = this.addDOMElement('paging', '');
+        this.addDOMElement('arrow arrow-next', '>', nav, () => {
             this.changeSlide((this.activeSlider < this.sliders.length - 1) ? (this.activeSlider + 1) : 0);
         });
-        this.addElement('arrow arrow-prev', '<', nav, () => {
+        this.addDOMElement('arrow arrow-prev', '<', nav, () => {
             this.changeSlide((this.activeSlider > 0) ? (this.activeSlider - 1) : (this.sliders.length - 1));
         });
 
-        this.sliders.forEach((el, i) => { return this.addElement('circle', '', paging, () => { this.changeSlide(i) }); });
+        this.sliders.forEach((el, i) => { return this.addDOMElement('circle', '', paging, () => { this.changeSlide(i) }); });
     }
 
     changeSlide(id = 0) {
@@ -38,7 +43,7 @@ class Slider {
         document.getElementsByClassName('paging')[0].children[id].classList.add('active');
     }
 
-    addElement(className, text, parent = this.root, func) {
+    addDOMElement(className, text, parent = this.root, func) {
         let element = document.createElement("div");
         element.className = className;
         element.innerHTML = text;
